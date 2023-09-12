@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aukro.MainPage"
+             NavigationPage.HasBackButton="false">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="AUKRO" FontSize="24" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20"/>
+            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10" WidthRequest="500" >
+                <Button Text="Logout" Clicked="OnLogoutClicked" />
+                <Button Text="Create Item" Clicked="OnCreateClicked" />
+            </StackLayout>
+            <CollectionView x:Name="MyCollectionView" ItemsSource="{Binding Items}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding ImageData, Converter={StaticResource konvertor}}" WidthRequest="300" HeightRequest="300" Grid.Row="1" />
+                            <Label Text="Name:" FontSize="20" Grid.Row="2" />
+                            <Label Text="{Binding Name}" FontSize="16" Grid.Row="3" />
+                            <Label Text="Description:" FontSize="20" Grid.Row="4" />
+                            <Label Text="{Binding Description}" FontSize="16" Grid.Row="5" />
+                            <Label Text="Date:" FontSize="20" Grid.Row="6" />
+                            <Label Text="{Binding Date}" FontSize="16" Grid.Row="7" />
+                            <Label Text="Category:" FontSize="20" Grid.Row="8" />
+                            <Label Text="{Binding CategoryName}" FontSize="16" Grid.Row="9" />
+                            <Label Text=" User:" FontSize="20" Grid.Row="10" />
+                            <Label Text="{Binding UserName}" FontSize="16" Grid.Row="11" />
+                            <Label Text="Price:" FontSize="20" Grid.Row="12" />
+                            <Label Text="{Binding Price, StringFormat='{0:F2}CZK'}" FontSize="16" Grid.Row="13" />
+                            <Label Text="Last Bidder:" FontSize="20" Grid.Row="14" />
+                            <Label Text="{Binding LastBidder}" FontSize="16" Grid.Row="15" />
+                            <Label Text="Current Price:" FontSize="20" Grid.Row="16" />
+                            <Label Text="{Binding PriceAct, StringFormat='{0:F2}CZK'}" FontSize="16" Grid.Row="17" />
+                            <Button Text="Bid" Clicked="OnBidButtonClicked" FontSize="16" Grid.Row="18" CommandParameter="{Binding Id}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
